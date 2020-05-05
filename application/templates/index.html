@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris Classifier</title>
+ </head>
+<body>
+            <h2>Welcome to Index Fund Predictor</h2>
+            <h3>Enter name of the index fund</h3>
+        <form action = "{{ url_for('indexfundpredict') }}" method="POST">
+            <input type="text" name="fund" >
+            </table>
+            <input type="hidden" id="forminput" name="forminput"  >           
+            <p><input type="submit" value="Predict"></p>
+                
+                {% if results == '0' or results == '1' %}
+                <h3>{{ fund }} :</h3>
+                {% endif %}     
+                {% if results  == '0' %}
+                    <h4>Trend: Down</h4>
+                    <h4>Suggestion:</h4>
+                    <h4>You should sell your funds and buy them in the next.</h4>          
+                {% elif results == '1' %}
+                    <h4>Trend: Up</h4> 
+                    <h4>Suggestion:</h4>
+                    <h4>You should buy them now.</h4>              
+                {% endif %}
+            
+        </form>
+</body>
+</html>
